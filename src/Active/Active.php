@@ -3,6 +3,7 @@
 namespace Rainwater\Active;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\BelongsToTenant;
 
 class Active extends Model
 {
@@ -11,6 +12,8 @@ class Active extends Model
      *
      * @var string
      */
+    use BelongsToTenant;
+
     protected $table = 'sessions';
 
     /**
@@ -19,7 +22,7 @@ class Active extends Model
      * @var string
      */
     protected $primaryKey = 'id';
-    
+
     /**
      * sessions do not use incremental ids, but unique strings as identifier.
      *
